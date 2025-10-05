@@ -1,0 +1,78 @@
+# 🔒 SSL / TLS Explained (Simple Terms)
+
+### 🧠 What is SSL / TLS?
+
+**TLS (Transport Layer Security)** is a protocol that keeps our data safe when it travels between our browser and a website (for example, when we log in to a bank account).
+
+**SSL (Secure Socket Layer)** was the older version of TLS — it’s outdated now, but people still use the name **“SSL”** out of habit.
+
+---
+
+### 🎯 The Main Goal of TLS
+
+TLS ensures:
+- 🔐 **Confidentiality** → No one can read your data  
+- 🧾 **Integrity** → No one can modify your data  
+- 🪪 **Authentication** → You’re talking to the real website  
+
+---
+
+## 🔑 Two Types of Encryption Used in TLS
+
+TLS actually combines **two encryption methods** to work efficiently and securely:
+
+1. **Asymmetric encryption** → used at the start for key exchange and identity verification.  
+2. **Symmetric encryption** → used afterward for encrypting actual data (because it’s faster).  
+
+---
+
+## ⚙️ Symmetric Encryption (Simple Words)
+
+- Uses **one single key** for both encryption and decryption.  
+- Fast and efficient for transferring large amounts of data.  
+
+**Example:**  
+Imagine you and your friend share a secret key.  
+You lock your message with that key (**encrypt**) and your friend unlocks it using the same key (**decrypt**).
+
+But… if someone else gets that same key, they can read everything.  
+That’s why TLS doesn’t send this symmetric key in plain text — instead, it’s **generated securely** using asymmetric encryption during the handshake.
+
+---
+
+## 🧩 Asymmetric Encryption (Simple Words)
+
+- Uses **two keys** — a **public key** and a **private key**.  
+- Anything encrypted with one can only be decrypted by the other.  
+
+**Example:**  
+Let’s say a website has:
+- 🔓 A **public key** → anyone can use it to encrypt messages to the site  
+- 🔒 A **private key** → only the site keeps it safe and uses it to decrypt messages  
+
+During the **TLS Handshake**:
+1. The browser gets the server’s public key (from its certificate).  
+2. It uses that key to encrypt a secret message (used to create the symmetric key).  
+3. The server decrypts it with its private key.  
+4. Now both sides share the same secret key — securely.  
+
+---
+
+### ✅ Summary
+
+| Concept | Key Type | Used For | Speed |
+|----------|-----------|----------|-------|
+| **Symmetric Encryption** | One shared key | Actual data transfer | ⚡ Fast |
+| **Asymmetric Encryption** | Public + Private keys | Key exchange, authentication | 🐢 Slower |
+
+---
+
+> 🗒️ **In short:**  
+> TLS starts with **asymmetric encryption** (for safety) and switches to **symmetric encryption** (for speed).  
+> That’s how your connection stays both **secure** and **fast**.
+
+---
+
+### ✍️ Learning Note
+I’m documenting what I learn about DevOps and development in simple terms.  
+These notes are written in my own words to help me understand and remember better — and maybe help others too.
